@@ -1,9 +1,8 @@
-name: Build Application Image
+name: Build Application
 
-# Runs when
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -11,11 +10,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@c2
+        uses: actions/checkout@v3
 
-      - name: Set up Docker Buildx 
-        uses: docker/setup-buildx-action@c2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
 
-      - name: Build Docker Image
-        uses: docker build -t devops-info-api:latest .
-        
+      - name: Build Docker image
+        run: docker build -t devops-info-api:latest .
